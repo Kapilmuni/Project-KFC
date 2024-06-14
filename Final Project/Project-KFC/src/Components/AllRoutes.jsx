@@ -10,5 +10,5 @@ export default function AllRoutes(){
         <Route path="/menu" element={<Menu/>}/>
         <Route path="/deals" element={<Deals/>}/>
         <Route path="/signIn" element={<SignIn/>}/>
-    </Routes>
+     </Routes>
 }

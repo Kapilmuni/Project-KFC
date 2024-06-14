@@ -1,16 +1,20 @@
-import {Box,Flex,Button,Text,Image,Heading,Grid} from "@chakra-ui/react";
+import {Box,Flex,Button,Text,Image,Heading,Grid,useDisclosure} from "@chakra-ui/react";
 import kfcBanner from "../assets/kfc-banner.png"
 import "../Pages/Style.css";
+import Model from "../Components/Model";
+import Footer from "../Components/Footer";
 
 export default function Deals() {
+    const { isOpen, onOpen, onClose } = useDisclosure();
     return(
         <>
         <Box marginTop="165px" padding="12px" bgColor="rgb(32, 33, 36)">
             <Flex align="center"  justifyContent="space-around" width="43%" m="auto">
                 <Text fontSize="14px" color="white" fontFamily="Arial Black">LET'S ORDER FOR DELIVERY, PICK UP, OR DINE-IN</Text>
-                <Button colorScheme='white' bgColor="red" color="white" fontSize="14px" height="45px" width="160px" borderRadius="30px" ml="12px">Start Order</Button>
+                <Button onClick={onOpen} cursor="pointer" colorScheme='white' bgColor="red" color="white" fontSize="14px" height="45px" width="160px" borderRadius="30px" ml="12px">Start Order</Button>
             </Flex>
         </Box>
+        <Model isOpen={isOpen} onOpen={onOpen} onClose={onClose}/>
         <Box>
             <Image src={kfcBanner} alt="kfc-banner"/>
         </Box>
@@ -206,5 +210,6 @@ export default function Deals() {
                 
             </Grid>
         </Box>
+        <Footer/>
         </>)
 }
